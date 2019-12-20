@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UDSn66q65iwGNzaEj2s1RtT8kD" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA\Практика\Проект\Код\Попытка\lib\natives" />
+      <recent name="D:\JAVA\Практика\Проект\Код\Попытка\lib\jars" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="SetupClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SetupClass" />
+      <module name="Попытка" />
+      <option name="VM_PARAMETERS" value="-Djava.library.pathslibs/natives/" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SetupClass" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="" />
+      <created>1574889836785</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574889836785</updated>
+      <workItem from="1574889840581" duration="451000" />
+      <workItem from="1574890308986" duration="24000" />
+      <workItem from="1574890350879" duration="4265000" />
+      <workItem from="1575012239558" duration="947000" />
+      <workItem from="1575013538417" duration="78000" />
+      <workItem from="1575222809103" duration="5142000" />
+      <workItem from="1575480686800" duration="70000" />
+      <workItem from="1575552494564" duration="1589000" />
+      <workItem from="1575732517909" duration="9079000" />
+      <workItem from="1575787974789" duration="21000" />
+      <workItem from="1575788156046" duration="824000" />
+      <workItem from="1576082633755" duration="237000" />
+      <workItem from="1576084275484" duration="36000" />
+      <workItem from="1576346619686" duration="8945000" />
+      <workItem from="1576413899050" duration="17088000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
