@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="" />
+    <list default="true" id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SetupClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SetupClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainField.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Stop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TextField.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spaghetti_atlas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainField.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Play.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SetupClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SetupClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Stop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TextField.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spaghetti_atlas.png" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +35,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -24,6 +47,7 @@
   </component>
   <component name="ProjectId" id="1UDSn66q65iwGNzaEj2s1RtT8kD" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -90,10 +114,41 @@
       <workItem from="1576084275484" duration="36000" />
       <workItem from="1576346619686" duration="8945000" />
       <workItem from="1576413899050" duration="17088000" />
+      <workItem from="1576957120041" duration="27924000" />
+      <workItem from="1577291190521" duration="4882000" />
+      <workItem from="1577563793093" duration="5556000" />
+      <workItem from="1577633420652" duration="8866000" />
+      <workItem from="1577893113465" duration="12171000" />
+      <workItem from="1577996077985" duration="17066000" />
+      <workItem from="1578228287010" duration="24722000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/SetupClass.java</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

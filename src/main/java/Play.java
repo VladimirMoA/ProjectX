@@ -111,6 +111,9 @@ public class Play extends BasicGameState {
                         MCPositionX -= i * .1f;
                         MCPositionY -= i * .1f;
                     }
+                    if (MCPositionX>435) {
+                        MCPositionX -= i * .1f;
+                    }
                 }
             }
 
@@ -124,6 +127,9 @@ public class Play extends BasicGameState {
                     } else if (MCPositionX<340 && MCPositionY>150) {
                         MCPositionX += i * .1f;
                         MCPositionY -= i * .1f;
+                    }
+                    if (MCPositionX<240) {
+                        MCPositionX += i * .1f;
                     }
                 }
             }
