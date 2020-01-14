@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Play.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SetupClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SetupClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainField.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Stop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/TextField.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spaghetti_atlas.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MainField.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Play.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SetupClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SetupClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Stop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TextField.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spaghetti_atlas.png" beforeDir="false" />
-    </list>
+    <list default="true" id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +100,7 @@
       <workItem from="1577633420652" duration="8866000" />
       <workItem from="1577893113465" duration="12171000" />
       <workItem from="1577996077985" duration="17066000" />
-      <workItem from="1578228287010" duration="24722000" />
+      <workItem from="1578228287010" duration="24858000" />
     </task>
     <servers />
   </component>
