@@ -6,10 +6,8 @@ import org.newdawn.slick.geom.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 
 public class TurnPlay extends BasicGameState {
@@ -19,15 +17,17 @@ public class TurnPlay extends BasicGameState {
     private boolean collides = false;
     private Ellipse ellipse = null;
     private TiledMap map;
-    float xDirection = -100;
-    float yDirection = -100;
-    float glowDrawPositionX = -50;
-    float glowDrawPositionY = -50;
+    float xDirection = -100; float yDirection = -100;
+    float glowDrawPositionX = -50; float glowDrawPositionY = -50;
+    float redAnim1X = -50; float redAnim1Y = -50; float redAnim2X = -50; float redAnim2Y = -50;
+    float redAnim3X = -50; float redAnim3Y = -50; float redAnim4X = -50; float redAnim4Y = -50;
     int playerNumber = 0;
     ArrayList<Coordinates> possibleCoordinates = new ArrayList<Coordinates>();
     ArrayList <NPC> players = new ArrayList<NPC>();
-    private SpriteSheet glow,tileGlow,arrowTest;
-    private Animation MCIdle,MCIdle1,MCIdle2,MCIdle3,MCIdle4,glowAnim,tileGlowAnim,arrowTestAnim;
+    private SpriteSheet glow,tileGlow,arrowTest,red;
+    private Animation glowAnim,tileGlowAnim,arrowTestAnim,redAnim1,redAnim2,redAnim3,redAnim4;
+
+    NPC [][] NPCLocation = new NPC[5][5];
 
     boolean [][] gameLocation = new boolean[5][5];
 
@@ -52,13 +52,13 @@ public class TurnPlay extends BasicGameState {
     }
 
     // Рисуем персонажа
-    public static void npcDraw(NPC npc, Animation animation) {
+    public static void npcDraw(NPC npc) {
         float x = movingCordArray[(int)npc.getCoordinates().getX()][(int)npc.getCoordinates().getY()].getX();
         float y = movingCordArray[(int)npc.getCoordinates().getX()][(int)npc.getCoordinates().getY()].getY();
-        animation = new Animation(npc.getSpriteSheet(),100);
-        animation.setCurrentFrame(6);
-        animation.stop();
-        animation.draw(x,y,33,79);
+        npc.setAnimation(new Animation(npc.getSpriteSheet(),100));
+        npc.getAnimation().setCurrentFrame(6);
+        npc.getAnimation().draw(x,y,33,79);
+        npc.getAnimation().start();
     }
 
     public TurnPlay(int state) {
@@ -100,18 +100,49 @@ public class TurnPlay extends BasicGameState {
         shape23 = tile(254+179.2f,295-12.4f,254+204.8f,295-24.8f,254+230.4f,295-12.4f,254+204.8f,295);
         shape24 = tile(254+204.8f,295,254+230.4f,295-12.4f,254+256f,295,254+230.4f,295+13);
 
+        red = new SpriteSheet("src/main/resources/RedEffect/RedEffect.png",85,169);
         glow = new SpriteSheet("src/main/resources/GlowAnim.png",64,31);
         tileGlow = new SpriteSheet("src/main/resources/TileAnim.png",64,31);
-        players.add(new NPC("ГГ", new Coordinates(0,0),5,0,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),true));
-        players.add(new NPC("ГГ", new Coordinates(0,1),5,0,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),true));
-        players.add(new NPC("ГГ", new Coordinates(0,2),5,0,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),true));
-        players.add(new NPC("ГГ", new Coordinates(0,3),5,0,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),true));
-        players.add(new NPC("ГГ", new Coordinates(0,4),5,0,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),true));
+        players.add(new NPC("ГГ", new Coordinates(0,0),5,1,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),new Animation(),new Animation(),true));
+        players.add(new NPC("ГГГ", new Coordinates(0,1),5,2,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),new Animation(),new Animation(),true));
+        players.add(new NPC("ГГГГ", new Coordinates(0,2),5,3,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),new Animation(),new Animation(),true));
+        players.add(new NPC("ГГГГГ", new Coordinates(0,3),5,4,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),new Animation(),new Animation(),true));
+        players.add(new NPC("ГГГГГГ", new Coordinates(0,4),5,5,0,0,0,0,0,0,new SpriteSheet("src/main/resources/MCAtlas.png",85,169),new Animation(),new Animation(),true));
         arrowTest = new SpriteSheet("src/main/resources/ArrowAnim/RUpArrow/1Tile/0Empty.png",130,72);
+        redAnim1 = new Animation(red,100);
+        redAnim2 = new Animation(red,100);
+        redAnim3 = new Animation(red,100);
+        redAnim4 = new Animation(red,100);
         glowAnim = new Animation(glow,100);
         tileGlowAnim = new Animation(tileGlow,100);
         arrowTestAnim = new Animation(arrowTest,75);
         ellipse = new Ellipse(0,0,1,1);
+
+        if (players.size() >= 2) {
+            gameLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = true;
+            NPCLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = (players.get(0));
+            System.out.println(NPCLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()].getName());
+        }
+        if (players.size() >= 4) {
+            gameLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()] = true;
+            NPCLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()] = (players.get(1));
+            System.out.println(NPCLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()].getName());
+        }
+        if (players.size() >= 6) {
+            gameLocation[(int) players.get(2).getCoordinates().getX()][(int) players.get(2).getCoordinates().getY()] = true;
+            NPCLocation[(int) players.get(2).getCoordinates().getX()][(int) players.get(2).getCoordinates().getY()] = (players.get(2));
+            System.out.println(NPCLocation[(int) players.get(2).getCoordinates().getX()][(int) players.get(2).getCoordinates().getY()].getName());
+        }
+        if (players.size() >= 8) {
+            gameLocation[(int) players.get(3).getCoordinates().getX()][(int) players.get(3).getCoordinates().getY()] = true;
+            NPCLocation[(int) players.get(3).getCoordinates().getX()][(int) players.get(3).getCoordinates().getY()] = (players.get(3));
+            System.out.println(NPCLocation[(int) players.get(3).getCoordinates().getX()][(int) players.get(3).getCoordinates().getY()].getName());
+        }
+        if (players.size() >= 10) {
+            gameLocation[(int) players.get(4).getCoordinates().getX()][(int) players.get(4).getCoordinates().getY()] = true;
+            NPCLocation[(int) players.get(4).getCoordinates().getX()][(int) players.get(4).getCoordinates().getY()] = (players.get(4));
+            System.out.println(NPCLocation[(int) players.get(4).getCoordinates().getX()][(int) players.get(4).getCoordinates().getY()].getName());
+        }
     }
 
     // Рисуем анимации и квадраты
@@ -126,25 +157,76 @@ public class TurnPlay extends BasicGameState {
         graphics.draw(shape15); graphics.draw(shape16); graphics.draw(shape17); graphics.draw(shape18); graphics.draw(shape19);
         graphics.draw(shape20); graphics.draw(shape21); graphics.draw(shape22); graphics.draw(shape23); graphics.draw(shape24);
 
+        if (players.size() >= 2) { npcDraw(players.get(0)); players.get(0);}
+        if (players.size() >= 4) { npcDraw(players.get(1)); players.get(1);}
+        if (players.size() >= 6) {npcDraw(players.get(2)); players.get(2);}
+        if (players.size() >= 8) {npcDraw(players.get(3)); players.get(3);}
+        if (players.size() >= 10) {npcDraw(players.get(4)); players.get(4);}
+
+        redAnim1.draw(redAnim1X,redAnim1Y,33,79);
+        redAnim2.draw(redAnim2X,redAnim2Y,33,79);
+        redAnim3.draw(redAnim3X,redAnim3Y,33,79);
+        redAnim4.draw(redAnim4X,redAnim4Y,33,79);
+
         // Отображения возможного выбора перемещения
         if (players.get(playerNumber).getAP()>0) {
             try {
                 for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                    if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()] == true) {
+                        for (int j = 0; j < players.size()/2; j++) {
+                            if (players.get(j).equals(null)) {continue;}
+                            if (players.get(j).getName() == NPCLocation[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()].getName()) {
+                                redAnim1X = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()].getX();
+                                redAnim1Y = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()].getY();
+                            }
+                        }
+                        break;
+                    }
                     tileGlowAnim.draw(animCordArray[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()].getX(), animCordArray[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()].getY(), 50, 23);
                 }
             } catch (ArrayIndexOutOfBoundsException e) { }
             try {
                 for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                    if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()] == true) {
+                        for (int j = 0; j < players.size()/2; j++) {
+                            if (players.get(j).equals(null)) {continue;}
+                            if (players.get(j).getName() == NPCLocation[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()].getName()) {
+                                redAnim2X = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()].getX();
+                                redAnim2Y = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()].getY();
+                            }
+                        }
+                        break;
+                    }
                     tileGlowAnim.draw(animCordArray[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()].getX(), animCordArray[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()].getY(), 50, 23);
                 }
             } catch (ArrayIndexOutOfBoundsException e) { }
             try {
                 for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                    if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k] == true) {
+                        for (int j = 0; j < players.size()/2; j++) {
+                            if (players.get(j).equals(null)) {continue;}
+                            if (players.get(j).getName() == NPCLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k].getName()) {
+                                redAnim3X = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k].getX();
+                                redAnim3Y = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k].getY();
+                            }
+                        }
+                        break;
+                    }
                     tileGlowAnim.draw(animCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k].getX(), animCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k].getY(), 50, 23);
                 }
             } catch (ArrayIndexOutOfBoundsException e) { }
             try {
                 for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                    if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k] == true) {
+                        for (int j = 0; j < players.size()/2; j++) {
+                            if (players.get(j).equals(null)) {continue;}
+                            if (players.get(j).getName() == NPCLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k].getName()) {
+                                redAnim4X = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k].getX();
+                                redAnim4Y = movingCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k].getY();
+                            }
+                        }
+                        break;
+                    }
                     tileGlowAnim.draw(animCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k].getX(), animCordArray[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k].getY(), 50, 23);
                 }
             } catch (ArrayIndexOutOfBoundsException e) { }
@@ -152,27 +234,6 @@ public class TurnPlay extends BasicGameState {
 
         arrowTestAnim.draw(xDirection,yDirection);
 
-        if (players.size() == 2) {
-            npcDraw(players.get(0),MCIdle); gameLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = true;
-        } else if (players.size() == 4) {
-            npcDraw(players.get(0),MCIdle); gameLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = true;
-            npcDraw(players.get(1),MCIdle1); gameLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()] = true;
-        } else if (players.size() == 6) {
-            npcDraw(players.get(0),MCIdle); gameLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = true;
-            npcDraw(players.get(1),MCIdle1); gameLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()] = true;
-            npcDraw(players.get(2),MCIdle2); gameLocation[(int) players.get(2).getCoordinates().getX()][(int) players.get(2).getCoordinates().getY()] = true;
-        } else if (players.size() == 8) {
-            npcDraw(players.get(0),MCIdle); gameLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = true;
-            npcDraw(players.get(1),MCIdle1); gameLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()] = true;
-            npcDraw(players.get(2),MCIdle2); gameLocation[(int) players.get(2).getCoordinates().getX()][(int) players.get(2).getCoordinates().getY()] = true;
-            npcDraw(players.get(3),MCIdle3); gameLocation[(int) players.get(3).getCoordinates().getX()][(int) players.get(3).getCoordinates().getY()] = true;
-        } else if (players.size() == 10) {
-            npcDraw(players.get(0),MCIdle); gameLocation[(int) players.get(0).getCoordinates().getX()][(int) players.get(0).getCoordinates().getY()] = true;
-            npcDraw(players.get(1),MCIdle1); gameLocation[(int) players.get(1).getCoordinates().getX()][(int) players.get(1).getCoordinates().getY()] = true;
-            npcDraw(players.get(2),MCIdle2); gameLocation[(int) players.get(2).getCoordinates().getX()][(int) players.get(2).getCoordinates().getY()] = true;
-            npcDraw(players.get(3),MCIdle3); gameLocation[(int) players.get(3).getCoordinates().getX()][(int) players.get(3).getCoordinates().getY()] = true;
-            npcDraw(players.get(4),MCIdle4); gameLocation[(int) players.get(4).getCoordinates().getX()][(int) players.get(4).getCoordinates().getY()] = true;
-        }
     }
 
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
@@ -189,24 +250,28 @@ public class TurnPlay extends BasicGameState {
             if (players.get(playerNumber).getAP() > 0) {
                 try {
                     for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                        if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX() + k][(int)players.get(playerNumber).getCoordinates().getY()] == true) {continue;}
                         possibleCoordinates.add(new Coordinates((int)players.get(playerNumber).getCoordinates().getX() + k, (int)players.get(playerNumber).getCoordinates().getY()));
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
                 }
                 try {
                     for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                        if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX() - k][(int)players.get(playerNumber).getCoordinates().getY()] == true) {continue;}
                         possibleCoordinates.add(new Coordinates((int)players.get(playerNumber).getCoordinates().getX() - k, (int)players.get(playerNumber).getCoordinates().getY()));
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
                 }
                 try {
                     for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                        if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() + k] == true) {continue;}
                         possibleCoordinates.add(new Coordinates((int)players.get(playerNumber).getCoordinates().getX(), (int)players.get(playerNumber).getCoordinates().getY() + k));
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
                 }
                 try {
                     for (int k = 1; k <= players.get(playerNumber).getAP(); k++) {
+                        if (gameLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY() - k] == true) {continue;}
                         possibleCoordinates.add(new Coordinates((int)players.get(playerNumber).getCoordinates().getX(), (int)players.get(playerNumber).getCoordinates().getY() - k));
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
@@ -390,7 +455,12 @@ public class TurnPlay extends BasicGameState {
                         arrowTestAnim.restart();
                         arrowTestAnim.setLooping(false);
                         possibleCoordinates = new ArrayList<Coordinates>();
+                        gameLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY()] = false;
+                        NPCLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY()] = null;
                         players.get(playerNumber).setCoordinates(new Coordinates((int) destination.getX(),(int) destination.getY()));
+                        gameLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY()] = true;
+                        NPCLocation[(int)players.get(playerNumber).getCoordinates().getX()][(int)players.get(playerNumber).getCoordinates().getY()] = (players.get(playerNumber));
+                        redAnim1Y = -50; redAnim1X = -50;redAnim2Y = -50; redAnim2X = -50;redAnim3Y = -50; redAnim3X = -50;redAnim4Y = -50; redAnim4X = -50;
                     }
                 }
             }

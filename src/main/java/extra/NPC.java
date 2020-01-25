@@ -1,23 +1,27 @@
 package extra;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.SpriteSheet;
 
 public class NPC {
 
-    String name;
-    Coordinates coordinates;
-    int AP;
-    float strength;
-    float speed;
-    float endurance;
-    float agility;
-    float luck;
-    float intelligence;
-    float wisdom;
-    SpriteSheet spriteSheet;
-    boolean isActive;
+    private String name;
+    private Coordinates coordinates;
+    private int AP;
+    private float strength;
+    private float speed;
+    private float endurance;
+    private float agility;
+    private float luck;
+    private float intelligence;
+    private float wisdom;
+    private SpriteSheet spriteSheet;
+    private Animation animation;
+    private Animation redEffect;
+    private boolean isActive;
 
-    public NPC(String name, Coordinates coordinates, int AP, float strength, float speed, float endurance, float agility, float luck, float intelligence, float wisdom, SpriteSheet spriteSheet, boolean isActive) {
+    public NPC(String name, Coordinates coordinates, int AP, float strength, float speed, float endurance, float agility, float luck,
+               float intelligence, float wisdom, SpriteSheet spriteSheet, Animation animation,Animation redEffect, boolean isActive) {
         this.name = name;
         this.coordinates = coordinates;
         this.AP = AP;
@@ -29,7 +33,25 @@ public class NPC {
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.spriteSheet = spriteSheet;
+        this.animation = animation;
+        this.redEffect = redEffect;
         this.isActive = isActive;
+    }
+
+    public Animation getRedEffect() {
+        return redEffect;
+    }
+
+    public void setRedEffect(Animation redEffect) {
+        this.redEffect = redEffect;
+    }
+
+    public Animation getAnimation() {
+        return animation;
+    }
+
+    public void setAnimation(Animation animation) {
+        this.animation = animation;
     }
 
     public Coordinates getCoordinates() {
