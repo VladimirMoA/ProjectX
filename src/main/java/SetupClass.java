@@ -19,7 +19,7 @@ public class SetupClass extends StateBasedGame {
         this.getState(menu).init(gameContainer,this);
         this.getState(play).init(gameContainer,this);
         this.getState(turnPlay).init(gameContainer,this);
-        this.enterState(turnPlay);
+        this.enterState(menu);
     }
 
     public static void main(String[] args) throws SlickException {

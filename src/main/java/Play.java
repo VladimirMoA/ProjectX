@@ -150,5 +150,9 @@ public class Play extends BasicGameState {
                 MCIdle = rUPMoveAnim;
             }
 
+            if (input.isKeyDown(Input.KEY_ESCAPE)) {
+                stateBasedGame.enterState(0);
+            }
+
     }
 }

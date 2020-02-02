@@ -3,12 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="0b487c0e-160e-4882-87aa-c8d41ed02dca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SetupClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SetupClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TurnPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TurnPlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/extra/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/extra/NPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MCAtlas.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MCAtlas.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RUPMove.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RUPMove.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MCAtlas.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MCAtlas.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Play.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/RUPMove.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RUPMove.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SetupClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SetupClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TurnPlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TurnPlay.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/extra/NPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/extra/NPC.class" afterDir="false" />
     </list>
@@ -113,6 +117,9 @@
       <workItem from="1578228287010" duration="25224000" />
       <workItem from="1579118083945" duration="7463000" />
       <workItem from="1579369331919" duration="17033000" />
+      <workItem from="1580035231508" duration="10273000" />
+      <workItem from="1580558537138" duration="1256000" />
+      <workItem from="1580567644448" duration="17883000" />
     </task>
     <servers />
   </component>

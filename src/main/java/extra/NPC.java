@@ -8,6 +8,7 @@ public class NPC {
     private String name;
     private Coordinates coordinates;
     private int AP;
+    private int HP;
     private float strength;
     private float speed;
     private float endurance;
@@ -20,10 +21,11 @@ public class NPC {
     private Animation redEffect;
     private boolean isActive;
 
-    public NPC(String name, Coordinates coordinates, int AP, float strength, float speed, float endurance, float agility, float luck,
+    public NPC(String name, Coordinates coordinates,int HP, int AP, float strength, float speed, float endurance, float agility, float luck,
                float intelligence, float wisdom, SpriteSheet spriteSheet, Animation animation,Animation redEffect, boolean isActive) {
         this.name = name;
         this.coordinates = coordinates;
+        this.HP = HP;
         this.AP = AP;
         this.strength = strength;
         this.speed = speed;
@@ -36,6 +38,14 @@ public class NPC {
         this.animation = animation;
         this.redEffect = redEffect;
         this.isActive = isActive;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 
     public Animation getRedEffect() {
